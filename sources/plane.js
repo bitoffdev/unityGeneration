@@ -18,9 +18,11 @@ function createPlane(width: float, height : float, orientation){
 	}
 	/*Assign the base texture coordinates of the mesh.*/
 	meshObj.uv = [Vector2 (0, 0), Vector2 (0, 1), Vector2(1, 1), Vector2 (1, 0)];
+	/*Recalculate the normals of the mesh from the triangles and vertices.*/
+	meshObj.RecalculateNormals();
 	/*Define a variable as a new gameobject with a MeshRenderer, MeshFilter, and MeshCollider attached to it.*/
 	/*Name the game object "plane"*/
-	var obj : GameObject = new GameObject("plane", MeshRenderer, MeshFilter, MeshCollider);
+	var obj : GameObject = new GameObject("Plane", MeshRenderer, MeshFilter, MeshCollider);
 	/*Attach the new mesh to the game object's mesh filter*/
 	obj.GetComponent(MeshFilter).mesh = meshObj;
 	/*Return the created plane*/
